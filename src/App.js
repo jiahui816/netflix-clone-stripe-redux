@@ -6,6 +6,7 @@ import Login from "./screens/Login.js";
 import { auth } from "./firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser } from "./features/userSlice";
+import ProfileScreen from "./screens/ProfileScreen";
 
 function App() {
   const user = useSelector(selectUser);
@@ -21,12 +22,12 @@ function App() {
           })
         );
       } else {
-        dispatch(logout);
+        dispatch(logout());
       }
     });
 
     return unsubcribe;
-  }, []);
+  }, [dispatch]);
   return (
     <div className="app">
       <Router>
@@ -34,6 +35,9 @@ function App() {
           <Login />
         ) : (
           <Switch>
+            <Route path="/profile">
+              <ProfileScreen />
+            </Route>
             <Route path="">
               <HomeScreen />
             </Route>
