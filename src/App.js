@@ -2,7 +2,7 @@ import React from "react";
 import HomeScreen from "./screens/HomeScreen";
 import "./styles/App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Login from "./screens/Login";
+import Login from "./screens/Login.js";
 
 function App() {
   const user = null;
